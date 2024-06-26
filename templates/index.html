@@ -1,0 +1,124 @@
+{% load static %}
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Food Search</title>
+ 
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}"></head>
+<body>
+  <div class="container">
+    <header>
+      <h1 class="company-name">company name</h1>
+      <p class="logo">with logo</p>
+      <div class="search-container">
+        <input type="search" id="searchInput" placeholder="Search Food Here">
+        <img src="{%static 'img/search.png'%}" alt="Search Icon" class="search-icon">
+      </div>
+    </header>
+
+    <div class="categories-wrapper">
+      <div class="categories">
+        <div class="category active" data-category="all">
+          <img src="{%static 'img/food.png'%}" alt="All">
+          <p>all</p>
+        </div>
+        <div class="category" data-category="ethio-dish">
+          <img src="{%static 'img/injera.jpg'%}" alt="Ethio Dish">
+          <p>ethio dish</p>
+        </div>
+        <div class="category" data-category="pizza">
+          <img src="{%static 'img/pizza.png'%}" alt="Pizza">
+          <p>pizza</p>
+        </div>
+        <div class="category" data-category="burger">
+          <img src="{%static 'img/hamburger.png'%}" alt="Burger">
+          <p>burger</p>
+        </div>
+        <!-- Add more categories here -->
+        <div class="category" data-category="sushi">
+          <img src="sushi.png" alt="Sushi">
+          <p>sushi</p>
+        </div>
+        <div class="category" data-category="salad">
+          <img src="salad.png" alt="Salad">
+          <p>salad</p>
+        </div>
+        <div class="category" data-category="dessert">
+          <img src="dessert.png" alt="Dessert">
+          <p>dessert</p>
+        </div>
+      </div>
+    </div>
+    {% for menus in menus %}
+    <div class="food-list">
+      <div class="food-item" data-category="ethio-dish">
+        <img src="{{menus.img.url}}" alt="Food 1" class="food-image">
+        <div class="food-details">
+          <div class="food-header">
+            <h2>{{menus.name}}</h2>
+            <h6>{{menus.time}} Min</h6>
+          </div>
+          <p>{{menus.desc}}</p>
+          <div class="food-footer">
+            <span class="price">{{menus.price}}</span>
+            <button class="more-btn" data-details="details1">more</button>
+          </div>
+        </div>
+        
+
+        
+        <div id="details1" class="food-detail-popup">
+          <h2>{{menus.name}}</h2>
+          <p>{{menus.descd}}</p>
+          <div class="bbox">
+            <img src="{%static 'img/group.png'%}" alt="">
+            <p>{{menus.persons}} person</p>
+            <img src="{%static 'img/clock.png'%}" alt="">
+            <p>{{menus.time}} Min</p>
+          </div>
+          <div class="bbox1">
+            <h3>Materials</h3>
+              <div class="para">
+                <h4>{{menus.materialsname}} </h4>
+                <p>{{menus.materialsgram}}gram</p>
+
+              </div>
+
+             <hr>
+             <div class="para">
+              <h4>{{menus.materialsname1}} </h4>
+              <p>{{menus.materialsgram1}}gram</p>
+
+            </div>
+
+           <hr>
+           <div class="para">
+            <h4>{{menus.materialsname2}} </h4>
+            <p>{{menus.materialsgram2}}gram</p>
+
+          </div>
+
+         <hr>
+             
+
+          </div>
+          <button class="close-btn" data-details="details1">Close</button>
+        </div>
+        
+      </div>
+
+     
+
+      <!-- Add more food items here as needed -->
+
+    </div>
+    {%endfor%}
+    
+
+  </div>
+  
+  <script src="{% static 'js/script.js'%}"></script>
+</body>
+</html>
