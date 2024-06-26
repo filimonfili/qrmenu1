@@ -86,7 +86,7 @@ WSGI_APPLICATION = 'qrmenu1.wsgi.application'
         
 #     }
 # }
-DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://menu_o6ro_user:iEXbWdvB6Qsw22xLNfsHz1GvUXb6plzF@dpg-cpsqgmaj1k6c738t7ing-a.oregon-postgres.render.com/menu_o6ro')
+DATABASE_URL = os.getenv('DATABASE_URL', 'postgresql://menu1_user:uDvgDGF11soUaZCAW6fS0G9ugl27jCXo@dpg-cptqr4hu0jms73edep50-a.oregon-postgres.render.com/menu1')
 DATABASES = {
     'default': dj_database_url.config(default=DATABASE_URL)
 }
