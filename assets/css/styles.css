@@ -164,7 +164,7 @@ header {
   cursor: pointer;
   margin-top: 18px;
 }
-@media only screen and (min-width: 391px) {
+@media only screen and (min-width: 450px) {
   body {
     display: none;
   }
