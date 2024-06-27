@@ -153,7 +153,7 @@ header {
   font-weight: bold;
   margin-top: 5%;
   color: green;
-  margin-left: -113px;
+  margin-left: -90px;
 }
 
 .more-btn {
@@ -164,11 +164,7 @@ header {
   cursor: pointer;
   margin-top: 18px;
 }
-@media only screen and (min-width: 500px) {
-  body {
-    display: none;
-  }
-}
+
 .more-btn:hover {
   background-color: #ddd;
 }
