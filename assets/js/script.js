@@ -19,20 +19,31 @@ document.addEventListener('DOMContentLoaded', function () {
   });
 
   function filterFoodItems() {
-    const filter = searchInput.value.toLowerCase();
+    const filter = searchInput.value.trim().toLowerCase();
     const selectedCategory = document.querySelector('.category.active').getAttribute('data-category');
     const foodItems = document.querySelectorAll('.food-item');
+
+    // Hide carousel and categories wrapper during search
+    document.querySelector('.carousel').style.display = 'none';
+    document.querySelector('.categories-wrapper').style.display = 'none';
 
     foodItems.forEach(function (item) {
       const foodName = item.querySelector('.food-header h2').textContent.toLowerCase();
       const itemCategory = item.getAttribute('data-category');
 
+      // Check if item matches search input and selected category
       if ((selectedCategory === 'all' || itemCategory === selectedCategory) && foodName.includes(filter)) {
-        item.style.display = '';
+        item.style.display = 'flex'; // Display matched items
       } else {
-        item.style.display = 'none';
+        item.style.display = 'none'; // Hide non-matching items
       }
     });
+
+    // Show carousel and categories wrapper when search bar is empty
+    if (filter === '') {
+      document.querySelector('.carousel').style.display = 'block';
+      document.querySelector('.categories-wrapper').style.display = 'block';
+    }
 
     attachMoreButtonListeners(); // Re-attach event listeners after filtering
   }
