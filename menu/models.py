@@ -26,5 +26,9 @@ class Menutype(models.Model):
 
       time=models.IntegerField()
       price=models.IntegerField()
-
-      
+class Specialoffer(models.Model):
+      special_image=models.ImageField()
+      special_name=models.CharField(max_length=10)
+      special_desc=models.TextField()
+      special_discount=models.IntegerField()
+      special_price=models.IntegerField()

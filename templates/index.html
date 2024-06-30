@@ -5,8 +5,8 @@
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Food Search</title>
- 
-  <link rel="stylesheet" href="{% static 'css/styles.css' %}"></head>
+  <link rel="stylesheet" href="{% static 'css/styles.css' %}">
+</head>
 <body>
   <div class="container">
     <header>
@@ -14,40 +14,55 @@
       <p class="logo">with logo</p>
       <div class="search-container">
         <input type="search" id="searchInput" placeholder="Search Food Here">
-        <img src="{%static 'img/search.png'%}" alt="Search Icon" class="search-icon">
+        <img src="{% static 'img/search.png' %}" alt="Search Icon" class="search-icon">
       </div>
     </header>
-
+    <div class="carousel">
+      <h3>Special offers</h3>
+      <div class="card-container" id="card-container">
+        {% for special_offer in special_offers %} 
+          <div class="card">
+            <img src="{{ special_offer.special_image.url }}" alt="Food Image">
+            <div class="card-content">
+              <h4>{{ special_offer.special_name }}</h4>
+              <p>{{ special_offer.special_desc }}</p>
+              <div class="prices">
+                <h5>{{ special_offer.special_discount }}Br</h5> 
+                <h6>{{ special_offer.special_price }}Br</h6>
+              </div>
+            </div>
+          </div>
+        {% endfor %} 
+      </div>
+      <div class="dots" id="dots">
+        <!-- Dots will be dynamically added here -->
+      </div>
+    </div>
     <div class="categories-wrapper">
       <div class="categories">
         <div class="category active" data-category="all">
-          <img src="{%static 'img/food.png'%}" alt="All">
+          <img src="{% static 'img/restaurantt.png' %}" alt="All">
           <p>all</p>
         </div>
-        <div class="category" data-category="ethio-dish">
-          <img src="{%static 'img/injera.jpg'%}" alt="Ethio Dish">
+        <div class="category" data-category="ethio dish">
+          <img src="{% static 'img/foodn.png' %}" alt="Ethio Dish">
           <p>ethio dish</p>
         </div>
         <div class="category" data-category="pizza">
-          <img src="{%static 'img/pizza.png'%}" alt="Pizza">
+          <img src="{% static 'img/pizza.png' %}" alt="Pizza">
           <p>pizza</p>
         </div>
         <div class="category" data-category="burger">
-          <img src="{%static 'img/hamburger.png'%}" alt="Burger">
+          <img src="{% static 'img/burger.png' %}" alt="Burger">
           <p>burger</p>
         </div>
-        <!-- Add more categories here -->
-        <div class="category" data-category="sushi">
-          <img src="sushi.png" alt="Sushi">
-          <p>sushi</p>
+        <div class="category" data-category="drinks">
+          <img src="{% static 'img/drink.png' %}" alt="drinks">
+          <p>Drinks</p>
         </div>
-        <div class="category" data-category="salad">
-          <img src="salad.png" alt="Salad">
-          <p>salad</p>
-        </div>
-        <div class="category" data-category="dessert">
-          <img src="dessert.png" alt="Dessert">
-          <p>dessert</p>
+        <div class="category" data-category="checkin">
+          <img src="{% static 'img/turkey.png' %}" alt="checkin">
+          <p>Chicken</p>
         </div>
       </div>
     </div>
@@ -62,13 +77,10 @@
           </div>
           <p>{{menus.desc}}</p>
           <div class="food-footer">
-            <span class="price">{{menus.price}}ETB</span>
+            <span class="price">{{menus.price}}</span>
             <button class="more-btn" data-details="details1">more</button>
           </div>
-        </div>
-        
-
-        
+        </div>             
         <div id="details1" class="food-detail-popup">
           <h2>{{menus.name}}</h2>
           <p>{{menus.descd}}</p>
@@ -114,11 +126,8 @@
       <!-- Add more food items here as needed -->
 
     </div>
-    {%endfor%}
-    
-
+    {% endfor %}
   </div>
-  
-  <script src="{% static 'js/script.js'%}"></script>
+  <script src="{% static 'js/script.js' %}"></script>
 </body>
 </html>

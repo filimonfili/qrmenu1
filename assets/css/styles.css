@@ -17,6 +17,98 @@ body {
   margin: auto;
   padding: 20px;
 }
+/* Carousel styles */
+.carousel {
+  position: relative;
+  width: 100%;
+}
+
+.carousel h3 {
+  margin-top: -6px;
+}
+
+.card-container {
+  display: flex;
+  margin-top: 10px;
+  flex-wrap: nowrap; /* Ensure cards don't wrap to new line */
+  gap: 1rem;
+  overflow-x: auto;
+  scrollbar-width: none;
+  -webkit-overflow-scrolling: touch;
+  padding-bottom: 10px; /* Add padding to bottom to avoid cutting off shadow */
+}
+
+.card {
+  flex: 0 0 auto; /* Ensure cards don't grow or shrink */
+  width: 290px; /* Adjusted card width */
+  height: 100px; /* Adjusted card height */
+  background-color: #fff;
+  border: 1px solid #ddd;
+  border-radius: 15px;
+  display: flex;
+  margin-right: 10px; /* Adjust margin between cards */
+  scroll-snap-align: start;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1); /* Add shadow */
+}
+
+.carousel h4 {
+  margin-top: -2px;
+  font-size: 1.2rem; /* Increase font size for carousel heading */
+}
+
+.card img {
+  width: 50%;
+  height: 100%;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
+
+.card-content {
+  padding: 10px;
+  margin-top: 5px;
+}
+
+.card h4 {
+  margin: 0;
+  font-size: 1rem; /* Adjust font size for card title */
+}
+
+.card p {
+  margin-top: 2px;
+  color: #555;
+}
+
+.prices {
+  display: flex;
+  gap: 1rem;
+  color: green;
+  margin-top: 12px; /* Adjust margin top for price section */
+}
+
+.prices h6 {
+  text-decoration: line-through;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  margin-top: 10px;
+}
+
+.dot {
+  width: 8px;
+  height: 8px;
+  background-color: #bbb;
+  border-radius: 50%;
+  margin: 0 3px;
+  transition: background-color 0.3s;
+}
+
+.dot.active {
+  background-color: #717171;
+}
+
 
 /* Header styles */
 header {
@@ -61,12 +153,13 @@ header {
 /* Categories styles */
 .categories-wrapper {
   overflow-x: auto;
-  margin-bottom: 20px;
+  
 }
 
 .categories {
   display: flex;
   gap: 15px;
+  margin-top: 10px;
 }
 
 .category {
@@ -74,14 +167,14 @@ header {
   flex-shrink: 0;
   cursor: pointer;
   padding: 5px;
-  border-radius: 10px;
+  
   transition: background-color 0.3s;
 }
 
 .category img {
   width: 50px;
   height: 50px;
-  border-radius: 10px;
+  
   margin-bottom: 5px;
 }
 
@@ -92,6 +185,7 @@ header {
 
 .category.active {
   background-color: #e0e0e0;
+  border-radius: 8px;
 }
 
 /* Food list styles */
@@ -103,7 +197,7 @@ header {
 
 .food-item {
   display: flex;
-  margin-top: 30px;
+  margin-top: 40px;
   background-color: #fff;
   padding: 15px;
   border-radius: 10px;
