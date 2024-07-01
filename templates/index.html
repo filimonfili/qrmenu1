@@ -78,10 +78,10 @@
           <p>{{menus.desc}}</p>
           <div class="food-footer">
             <span class="price">{{menus.price}}</span>
-            <button class="more-btn" data-details="details1">more</button>
+            <button class="more-btn" data-details="details{{menus.id}}">more</button>
           </div>
         </div>             
-        <div id="details1" class="food-detail-popup">
+        <div id="details{{menus.id}}" class="food-detail-popup">
           <h2>{{menus.name}}</h2>
           <p>{{menus.descd}}</p>
           <div class="bbox">
@@ -95,36 +95,22 @@
               <div class="para">
                 <h4>{{menus.materialsname}} </h4>
                 <p>{{menus.materialsgram}}gram</p>
-
               </div>
-
              <hr>
              <div class="para">
               <h4>{{menus.materialsname1}} </h4>
               <p>{{menus.materialsgram1}}gram</p>
-
             </div>
-
            <hr>
            <div class="para">
             <h4>{{menus.materialsname2}} </h4>
             <p>{{menus.materialsgram2}}gram</p>
-
           </div>
-
          <hr>
-             
-
           </div>
-          <button class="close-btn" data-details="details1">Close</button>
+          <button class="close-btn" data-details="details{{menus.id}}">Close</button>
         </div>
-        
       </div>
-
-     
-
-      <!-- Add more food items here as needed -->
-
     </div>
     {% endfor %}
   </div>
